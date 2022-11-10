@@ -14,7 +14,7 @@ const SingleProductPage = () => {
   const {id}=useParams();
   const history=useHistory();
 
-  const{name,price,description,stock,stars,reviews,id:sku,company,images,colors}=single_product;
+  const{name,price,description,stock,stars,reviews,id:sku,company,images,color}=single_product;
  
   
   useEffect(()=>{

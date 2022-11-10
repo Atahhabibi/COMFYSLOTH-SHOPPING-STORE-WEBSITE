@@ -45,12 +45,13 @@ const FilterContext = React.createContext()
 
   useEffect(()=>{
     dispatch({
-      type:SORT_PRODUCTS
-    })
-    dispatch({
       type:FILTER_PRODUCTS
     })
-  },[products,state.sort,state.filters])
+
+    dispatch({
+      type:SORT_PRODUCTS
+    })
+  },[products,state.filters,state.sort])
 
 
 
