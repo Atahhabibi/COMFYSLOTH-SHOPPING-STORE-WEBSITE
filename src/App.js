@@ -1,12 +1,14 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
-import Nav from './components/Navbar'
-import{Home,About,Products,SingleProduct,Error, Cart,Checkout} from './pages'
+/* import Nav from './components/Navbar' */
+import{Home,About,Products,SingleProduct,Error, Cart,Checkout, PrivateRoute,AuthWrapper} from './pages'
+
 
 
 function App() {
-  return <>
+  return <AuthWrapper>
+
   <Router>
 
     <Navbar/>
@@ -19,15 +21,19 @@ function App() {
       <Route exact path='/cart'><Cart/></Route>
       <Route exact path='/products'><Products/></Route>
       <Route exact path='/products/:id' children={<SingleProduct/>}></Route>
-      <Route exact path='/checkout'><Checkout/></Route>
+      <PrivateRoute exact path='/checkout'><Checkout/></PrivateRoute>
       <Route exact path='*'><Error/></Route>
 
     </Switch>
 
     <Footer/>
+    
   </Router>
 
-  </>
+
+  </AuthWrapper>
+
+  
 }
 
 export default App

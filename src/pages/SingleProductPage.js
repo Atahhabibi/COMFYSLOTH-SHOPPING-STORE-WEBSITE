@@ -14,11 +14,12 @@ const SingleProductPage = () => {
   const {id}=useParams();
   const history=useHistory();
 
-  const{name,price,description,stock,stars,reviews,id:sku,company,images,color}=single_product;
+  const{name,price,description,stock,stars,reviews,id:sku,company,images}=single_product;
  
   
   useEffect(()=>{
     fetchSingleProduct(`${url}${id}`)
+    // eslint-disable-next-line
   },[id])
 
   useEffect(()=>{
@@ -27,6 +28,7 @@ const SingleProductPage = () => {
         history.push('/');
       },3000);
     }
+    // eslint-disable-next-line
   },[single_product_error])
 
 
